@@ -1,0 +1,35 @@
+body{
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: hsl(206, 23%, 94%);
+    
+}
+.container{
+width: 45%;
+height: 45vh;
+padding: 10px;
+border-radius: 8px;
+box-shadow: 12px 12px 20px hsl(210, 6%, 81%),
+-12px -12px 20px hsl(0, 0%, 100%) ; 
+}
+.display input
+{
+   width: 90%; 
+   height: 70px;
+   font-size: 35px;
+   outline: none;
+   border: none;
+   text-align: right;
+   padding-right: .5rem;
+   background: #ecf0f3;
+   border-radius: 6px;
+   box-shadow: inset 8px 8px 8px #cbced1,
+               inset -8px -8px 8px #ffffff;
+}
+.container.btns {
+    width: 100%;   
+   }

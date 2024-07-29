@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>calculator</title>
+    <style>
+      body {
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+      #calculator {
+        font-family: Arial, Helvetica, sans-serif;
+        background-color: hsl(0, 0%, 10%);
+        border-radius: 10px;
+        max-width: 500px;
+        overflow: hidden;
+      }
+      #display {
+        width: 100%;
+        padding: 15px;
+        font-size: 5rem;
+        text-align: left;
+        border: none;
+        color: white;
+        background-color: hsl(0, 0%, 30%);
+        font-weight: bold;
+      }
+      #keys {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 10px;
+        padding: 15px;
+      }
+      button {
+        width: 100px;
+        height: 100px;
+        border-radius: 50px;
+        border: none;
+        background-color: hsl(0, 11%, 15%);
+        color: white;
+        font-size: 3rem;
+        font-weight: bold;
+        cursor: pointer;
+      }
+      button:hover {
+        background-color: hsl(0, 11%, 25%);
+      }
+      button:active {
+        background-color: hsl(0, 11%, 35%);
+      }
+      .operator-btn {
+        background-color: hsl(35, 100%, 65%);
+      }
+      .operator-btn:hover {
+        background-color: hsl(35, 100%, 75%);
+      }
+      .operator-btn:active {
+        background-color: hsl(35, 100%, 85%);
+      }
+    </style>
+  </head>
+  <body>
+    <div id="calculator">
+      <input id="display" readonly value="" placeholder="0" />
+      <div id="keys">
+        <button class="operator-btn" onclick="appenToDiplay('+')">+</button>
+        <button onclick="appenToDiplay('7')">7</button>
+        <button onclick="appenToDiplay('8')">8</button>
+        <button onclick="appenToDiplay('9')">9</button>
+        <button class="operator-btn" onclick="appenToDiplay('-')">-</button>
+        <button onclick="appenToDiplay('4')">4</button>
+        <button onclick="appenToDiplay('5')">5</button>
+        <button onclick="appenToDiplay('6')">6</button>
+        <button class="operator-btn" onclick="appenToDiplay('*')">*</button>
+        <button onclick="appenToDiplay('1')">1</button>
+        <button onclick="appenToDiplay('2')">2</button>
+        <button onclick="appenToDiplay('3')">3</button>
+        <button class="operator-btn" onclick="appenToDiplay('/')">/</button>
+        <button onclick="appenToDiplay('0')">0</button>
+        <button onclick="appenToDiplay('.')">.</button>
+        <button onclick="calculate('=')">=</button>
+        <button onclick="clearDisplay()">C</button>
+      </div>
+    </div>
+    <script>
+      const display = document.getElementById("display");
+
+      function appenToDiplay(input) {
+        display.value += input;
+      }
+      function clearDisplay() {
+        display.value = "";
+      }
+      function calculate() {
+        try {
+          display.value = eval(display.value);
+          if (display.value == "Infinity") {
+            throw new Error((display.value = "dumb!dont divide by 0"));
+          }
+        } catch (error) {
+          display.value = "ERROR";
+        }
+      }
+    </script>
+  </body>
+</html>
